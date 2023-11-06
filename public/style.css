@@ -4,4 +4,12 @@ body {
     font-size: medium;
  }
 
+ .classname {
+    color: #ff5500;
+ }
+ 
+ #idname {
+    text-transform: uppercase;
+ }
+
 /* Your comment goes here 
