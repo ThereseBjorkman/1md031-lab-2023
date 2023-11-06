@@ -1,15 +1,21 @@
 body {
     font-family: arial;
-    color: rgb(43, 226, 70);
     font-size: medium;
  }
 
- .classname {
+ .diet {
     color: #ff5500;
- }
- 
- #idname {
     text-transform: uppercase;
+ }
+
+ #burger {
+    background-color: black;
+    color: antiquewhite;
+ }
+
+ button:hover {
+    color: seagreen;
+    cursor: pointer;
  }
 
 /* Your comment goes here 
