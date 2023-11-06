@@ -1,0 +1,19 @@
+@import url("reset.css");
+@import 'https://fonts.googleapis.com/css?family=Pacifico|Dosis';
+
+body {
+    font-family: "Droid Serif", sans-serif;
+    font-size: 12pt;
+}
+
+p, strong, em {
+    color: #0099ff;
+}
+
+p.info,
+#login p {
+    width: 80%;
+    margin: 1vw auto;
+}
+
+/* Your comment goes here 
