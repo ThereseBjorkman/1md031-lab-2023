@@ -1,21 +1,34 @@
 body {
     font-family: arial;
     font-size: medium;
- }
+}
 
- .diet {
+section{
+    margin: auto 10em;
+}
+
+img {
+    width: 40vh;
+    padding: 10px,10px,10px,10px;
+}
+
+.diet {
     color: #ff5500;
     text-transform: uppercase;
- }
+}
 
- #burger {
+#burger {
     background-color: black;
     color: antiquewhite;
- }
+}
 
- button:hover {
-    color: seagreen;
+button{
+    margin: auto 10em;
+}
+
+button:hover {
+    background-color: seagreen;
     cursor: pointer;
- }
+}
 
 /* Your comment goes here 
