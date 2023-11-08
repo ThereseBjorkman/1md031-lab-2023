@@ -1,33 +1,34 @@
-/* Set a base font and font size for the entire document */
+@import url('https://fonts.cdnfonts.com/css/middle-earth-personal-use');
+
 body {
-    font-family: Arial, sans-serif; /* Use a fallback font */
-    font-size: 16px; /* Use a specific font size, e.g., 16 pixels */
+    font-family: 'Middle Earth PERSONAL USE', sans-serif;
+    font-size: 16px;
+    background-color:seagreen;
+    margin: 0em;
 }
 
-/* Style the header section */
 header {
     height: 40vh;
     overflow: hidden;
-    position: relative; /* Added for positioning the h1 */
+    position: relative;
+    font-size: x-large;
+    font-weight: bolder;
+    ;
+    color:peru;
 }
 
-/* Style the h1 element within the header */
 h1 {
     position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Center text */
-    margin: 0; /* Remove unnecessary margin */
-    margin-top: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-/* Style the Headerimg */
 #Headerimg {
-    opacity: 0.75;
+    opacity: 0.60;
     width: 100%;
 }
 
-/* Style the burgerimg */
 #burgerimg {
     width: 40vh;
     height: 35vh;
@@ -36,54 +37,55 @@ h1 {
 
 }
 
-/* Style the .diet class */
 .diet {
     color: green;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 .allergy {
     color:brown;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
-/* Style the contact section */
 #contact {
     background-color: seagreen;
-    color: lavender;
+    color: peru;
     margin: 5vh;
     padding: 2vh;
-    border: 0.5vh dashed lavender; /* Adjust border shorthand */
+    border: 0.5vh double peru;
 }
 
-/* Style the burger section */
 #burger {
     margin: 5vh;
     padding: 2vh;
-    border: 0.5vh solid black; /* Adjust border shorthand */
+    border: 0.5vh double peru;
     text-align: center;
 }
 
-/* Style buttons and hover effect */
 button {
-    margin: 2vh 5vh; /* Adjust vertical margin */
-    padding: 2vh 5vh; /* Add some padding to buttons for better clickability */
-    background-color: transparent;
-    border: none;
+    margin: 2vh 5vh;
+    padding: 2vh 5vh;
+    border: solid black;
     cursor: pointer;
-    transition: background-color 0.3s; /* Smooth hover transition */
+    transition: background-color 0.3s;
+    text-align: center;
 }
 
 button:hover {
-    background-color: seagreen;
+    background-color: peru;
+}
+
+#ring{
+    width: 5vh;
+    height: 5vh;
 }
 
 .Burgerselection{
     display: grid;
     grid-gap: 2em;
     grid-template-columns: 30em 30em 30em;
-    background-color: #fff;
-    color: #444;
+    background-color:lightsteelblue;
+    color:azure;
 }
 
 .Titel-block{
