@@ -8,44 +8,49 @@
     </head>
     <body>
         <header>
+            <img src= "https://eatforum.org/content/uploads/2018/05/EAT_sprout_4_2018_1200x675-1024x576.jpg" id="Headerimg">
             <h1>Welcome to Build-A-Burger</h1>
         </header>
         <main>
             <section id="burger">
-                <h2>Build your Burger</h2>
-                <p>Here you can select the ingredients of your delicious burger.</p>
-                <div style="display: inline-block;">
-                    <h3>HOT-ASS-F</h3>
-                    <img src= "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/halloumi-burger-76608d7.jpg?quality=90&webp=true&resize=440,400" title="HOT-ASS-F Burger">
-                    <ul>
-                        <li>Spicy halloumi burger with pickled jalapenos and spicy mayo</li>
-                        <section class="diet">
-                            <li>Contains Gluten</li>
-                            <li>Vegetarian</li>
-                        </section>
-                    </ul>
-                </div>
-                <div style="display: inline-block;">
-                    <h3>FRESH-ASS-F</h3>
-                    <img src= "https://www.datocms-assets.com/32685/1622195002-mushroom-halloumi-burger.jpg?q=80&auto=format&dpr=1&w=800&h=500&fit=crop">
-                    <ul>
-                        <li>Fresh halloumi burger with grilled mushrooms and guacamole</li>
-                        <section class="diet">
-                            <li>Contains Gluten</li>
-                            <li>Vegetarian</li>
-                        </section>
-                    </ul>
-                </div>
-                <div style="display: inline-block;">
-                    <h3>WEIRD-ASS-F</h3>
-                    <img src= "https://www.halsanskok.se/sites/default/files/recipes/8cfb80bcee1fee838708af8a60977e7b_190226_GG_Grilled_Green_Incredible_Burger.jpg">
-                    <ul>
-                        <li>Halloumi burger with green zucchini bread (not moldy) and bbq sauce</li>
-                        <section class="diet">
-                            <li>Contains Gluten</li>
-                            <li>Vegetarian</li>
-                        </section>
-                    </ul>
+                <div class="Burgerselection">
+                    <div class="Titel-block">
+                        <h2>Build your Burger</h2>
+                        <p>Here you can select the ingredients of your delicious burger.</p>
+                    </div>
+                    <div class="block-A">
+                        <h3>HOT-ASS-F</h3>
+                        <img src= "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/halloumi-burger-76608d7.jpg?quality=90&webp=true&resize=440,400" title="HOT-ASS-F Burger" id="burgerimg">
+                        <ul>
+                            <li>Halloumi</li>
+                            <li>Jalapenos</li>
+                            <li>Spicy mayo</li>
+                            <li class="allergy">Gluten</li>
+                            <li class="diet">Vegetarian</li>
+                        </ul>
+                    </div>
+                    <div class="block-B">
+                        <h3>FRESH-ASS-F</h3>
+                        <img src= "https://www.datocms-assets.com/32685/1622195002-mushroom-halloumi-burger.jpg?q=80&auto=format&dpr=1&w=800&h=500&fit=crop" id="burgerimg">
+                        <ul>
+                            <li>Halloumi</li>
+                            <li>Grilled mushrooms</li>
+                            <li>Guacamole</li>
+                            <li class="allergy">Gluten</li>
+                            <li class="diet">Vegetarian</li>
+                        </ul>
+                    </div>
+                    <div class="block-C">
+                        <h3>WEIRD-ASS-F</h3>
+                        <img src= "https://www.halsanskok.se/sites/default/files/recipes/8cfb80bcee1fee838708af8a60977e7b_190226_GG_Grilled_Green_Incredible_Burger.jpg" id="burgerimg">
+                        <ul>
+                            <li>Halloumi</li>
+                            <li>Zucchini bun</li>
+                            <li>BBQ sauce</li>
+                            <li class="allergy">Gluten</li>
+                            <li class="diet">Vegetarian</li>
+                        </ul>
+                    </div>
                 </div>
             </section>
             <section id="contact">
@@ -83,11 +88,9 @@
                         <label>
                             <input type="radio" name="choices" value="F"> Female
                         </label>
-                        <br>
                         <label>
                             <input type="radio" name="choices" value="M"> Male
                         </label>
-                        <br>
                         <label>
                             <input type="radio" name="choices" value="O"> Other
                         </label>

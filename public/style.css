@@ -1,34 +1,107 @@
+/* Set a base font and font size for the entire document */
 body {
-    font-family: arial;
-    font-size: medium;
+    font-family: Arial, sans-serif; /* Use a fallback font */
+    font-size: 16px; /* Use a specific font size, e.g., 16 pixels */
 }
 
-section{
-    margin: auto 10em;
+/* Style the header section */
+header {
+    height: 40vh;
+    overflow: hidden;
+    position: relative; /* Added for positioning the h1 */
 }
 
-img {
+/* Style the h1 element within the header */
+h1 {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center text */
+    margin: 0; /* Remove unnecessary margin */
+    margin-top: -1;
+}
+
+/* Style the Headerimg */
+#Headerimg {
+    opacity: 0.75;
+    width: 100%;
+}
+
+/* Style the burgerimg */
+#burgerimg {
     width: 40vh;
-    padding: 10px,10px,10px,10px;
+    height: 35vh;
+    overflow: hidden;
+    padding: 3vh;
+
 }
 
+/* Style the .diet class */
 .diet {
-    color: #ff5500;
-    text-transform: uppercase;
+    color: green;
+    font-weight: bold;
 }
 
+.allergy {
+    color:brown;
+    font-weight: bold;
+}
+
+/* Style the contact section */
+#contact {
+    background-color: seagreen;
+    color: lavender;
+    margin: 5vh;
+    padding: 2vh;
+    border: 0.5vh dashed lavender; /* Adjust border shorthand */
+}
+
+/* Style the burger section */
 #burger {
-    background-color: black;
-    color: antiquewhite;
+    margin: 5vh;
+    padding: 2vh;
+    border: 0.5vh solid black; /* Adjust border shorthand */
+    text-align: center;
 }
 
-button{
-    margin: auto 10em;
+/* Style buttons and hover effect */
+button {
+    margin: 2vh 5vh; /* Adjust vertical margin */
+    padding: 2vh 5vh; /* Add some padding to buttons for better clickability */
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth hover transition */
 }
 
 button:hover {
     background-color: seagreen;
-    cursor: pointer;
 }
 
-/* Your comment goes here 
+.Burgerselection{
+    display: grid;
+    grid-gap: 2em;
+    grid-template-columns: 30em 30em 30em;
+    background-color: #fff;
+    color: #444;
+}
+
+.Titel-block{
+    grid-column: 1 / span 3;
+    grid-row: 1;
+}
+
+.block-A {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.block-B {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.block-C {
+    grid-column: 3;
+    grid-row: 2;
+}
