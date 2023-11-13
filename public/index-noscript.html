@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+       <title>Second Breakfast</title>
+       <meta charset="utf-8"/>
+       <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <header>
+            <img src= "https://static1.srcdn.com/wordpress/wp-content/uploads/2019/06/The-Shire.jpg" id="Headerimg">
+            <h1>Welcome to Second breakfast</h1>
+        </header>
+        <main>
+            <section id="burger">
+                <div class="Burgerselection">
+                    <div class="Titel-block">
+                        <h2>The best food in Middle Earth</h2>
+                        <p>What about second breakfast?</p>
+                    </div>
+                    <div class="block-A">
+                        <h3>The one ring</h3>
+                        <img src= "img/depositphotos_562899746-stock-photo-single-fried-onion-ring-_thumbnail.png" id="burgerimg">
+                        <ul>
+                            <li>Onion</li>
+                            <li>Power</li>
+                            <li class="allergy">Gluten</li>
+                            <li class="diet">Vegetarian</li>
+                        </ul>
+                    </div>
+                    <div class="block-B">
+                        <h3>Po-tay-toes</h3>
+                        <img src= "img/fries-fotor-bg-remover-2023110815947.png">
+                        <ul>
+                            <li>Boil'em</li>
+                            <li>Mash'em</li>
+                            <li>Stick'em in a stew</li>
+                            <li class="diet">Vegetarian</li>
+                        </ul>
+                    </div>
+                    <div class="block-C">
+                        <h3>Lembas bread</h3>
+                        <img src= "img/dsc_2986-fotor-bg-remover-20231108143341.png" id="burgerimg">
+                        <ul>
+                            <li>Mallorn Leaves</li>
+                            <li class="allergy">Gluten</li>
+                            <li class="diet">Vegetarian</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section id="contact">
+                <form>
+                    <h2>Customer Information</h2>
+                    <p>
+                        Here you need to enter your adress and name for the delivery.
+                    </p>
+                    <p>
+                        <label for="firstname">Full Name</label><br>
+                        <input type="text" id="firstname" name="fln" required="required" placeholder="First- and Last name">
+                    </p>
+                    <p>
+                        <label for="email">E-mail</label><br>
+                        <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
+                    </p>
+                    <p>
+                        <label for="street">Street</label><br>
+                        <input type="text" id="street" name="sn" placeholder="Street name">
+                    </p>
+                    <p>
+                        <label for="house">House</label><br>
+                        <input type="number" id="house" name="hn" placeholder="House number">
+                    </p>
+                    <p>
+                        <label for="payment">Payment Method</label><be>
+                        <select id="payment" name="pay" selected="Klarna">
+                            <option>Silver farthing</option>
+                            <option>Silver penny</option>
+                            <option>Brassling</option>
+                            <option>Copperlings</option>
+                        </select>
+                    </p>
+                    <p>
+                        <label>
+                            <input type="radio" name="choices" value="F"> Hobbit
+                        </label>
+                        <label>
+                            <input type="radio" name="choices" value="M"> Dwarf
+                        </label>
+                        <label>
+                            <input type="radio" name="choices" value="O"> Elf
+                        </label>
+                    </p>
+                </form>
+            </section>
+        </main>
+        <button type="submit">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/One_Ring_Blender_Render.png" id="ring">
+            Take the ring to Mordor!
+        </button>
+        <hr>
+        <footer>
+            &copy; 2023 The Prancing Pony Inc.
+        </footer>
+    </body>
+</html>
