@@ -1,0 +1,25 @@
+[
+    {
+        "name": "The one ring",
+        "lactose": false,
+        "gluten": true,
+        "url": "img/depositphotos_562899746-stock-photo-single-fried-onion-ring-_thumbnail.png",
+        "ingredients": ["Onion", "Power"]
+    },
+    
+    {
+        "name": "Po-tay-toes",
+        "lactose": false,
+        "gluten": false,
+        "url": "img/fries-fotor-bg-remover-2023110815947.png",
+        "ingredients": ["Boil'em", "Mash'em"]
+    },
+
+    {
+        "name": "Lembas bread",
+        "lactose": true,
+        "gluten": true,
+        "url": "img/dsc_2986-fotor-bg-remover-20231108143341.png",
+        "ingredients": ["Mallorn Leaves"]
+    }
+  ]

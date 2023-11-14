@@ -10,35 +10,7 @@
                         <h2>The best food in Middle Earth</h2>
                         <p>What about second breakfast?</p>
                     </div>
-                    <div class="block-A">
-                        <h3>The one ring</h3>
-                        <img src= "img/depositphotos_562899746-stock-photo-single-fried-onion-ring-_thumbnail.png" id="burgerimg">
-                        <ul>
-                            <li>Onion</li>
-                            <li>Power</li>
-                            <li class="allergy">Gluten</li>
-                            <li class="diet">Vegetarian</li>
-                        </ul>
-                    </div>
-                    <div class="block-B">
-                        <h3>Po-tay-toes</h3>
-                        <img src= "img/fries-fotor-bg-remover-2023110815947.png">
-                        <ul>
-                            <li>Boil'em</li>
-                            <li>Mash'em</li>
-                            <li>Stick'em in a stew</li>
-                            <li class="diet">Vegetarian</li>
-                        </ul>
-                    </div>
-                    <div class="block-C">
-                        <h3>Lembas bread</h3>
-                        <img src= "img/dsc_2986-fotor-bg-remover-20231108143341.png" id="burgerimg">
-                        <ul>
-                            <li>Mallorn Leaves</li>
-                            <li class="allergy">Gluten</li>
-                            <li class="diet">Vegetarian</li>
-                        </ul>
-                    </div>
+                    <Burger v-for="burger in burgers" :key="burger.name" :burger="burger"/>
                 </div>
             </section>
             <section id="contact">
@@ -99,35 +71,34 @@
 <script>
 import Burger from '../components/OneBurger.vue'
 import io from 'socket.io-client'
+import menu from '../assets/menu.json'
 
 const socket = io();
 
-function MenuItem(name, url, lactose, gluten, ingredients) {
-  this.name = name;
-  this.url = url;
-  this.lactose = lactose;
-  this.gluten = gluten;
-  this.ingredients = ingredients;
-}
+// function MenuItem(name, url, lactose, gluten, ingredients) {
+//   this.name = name;
+//   this.url = url;
+//   this.lactose = lactose;
+//   this.gluten = gluten;
+//   this.ingredients = ingredients;
+// }
 
-let Burgers = [ { name: "The one ring", 
-                  url: "img/depositphotos_562899746-stock-photo-single-fried-onion-ring-_thumbnail.png", 
-                  lactose: true, 
-                  gluten: true, 
-                  ingredients: ['Onion', 'Power']},
-                { name: "Po-tay-toes", 
-                  url: "img/fries-fotor-bg-remover-2023110815947.png", 
-                  lactose: false, 
-                  gluten: false,
-                  ingredients: ["Boil'em", "Mash'em"]}, 
-                { name: "Lembas bread", 
-                  url: "img/dsc_2986-fotor-bg-remover-20231108143341.png", 
-                  lactose: false, 
-                  gluten: true,
-                  ingredients: "Mallorn Leaves"}
-              ]
-
-console.log(Burgers);
+// let Burgers = [ { name: "The one ring", 
+//                   url: "img/depositphotos_562899746-stock-photo-single-fried-onion-ring-_thumbnail.png", 
+//                   lactose: true, 
+//                   gluten: true, 
+//                   ingredients: "Onion, Power"},
+//                 { name: "Po-tay-toes", 
+//                   url: "img/fries-fotor-bg-remover-2023110815947.png", 
+//                   lactose: false, 
+//                   gluten: false,
+//                   ingredients: "Boil'em, Mash'em"}, 
+//                 { name: "Lembas bread", 
+//                   url: "img/dsc_2986-fotor-bg-remover-20231108143341.png", 
+//                   lactose: false, 
+//                   gluten: true,
+//                   ingredients: "Mallorn Leaves"}
+//               ]
 
 
 export default {
@@ -137,7 +108,7 @@ export default {
   },
   data: function () {
     return {
-      burgers: Burgers
+      burgers: menu
     }
   },
   methods: {
@@ -162,109 +133,78 @@ export default {
   @import url('https://fonts.cdnfonts.com/css/tolkien');
 
   body {
-    font-family: 'Tolkien', sans-serif;
-    font-size: 1em;
-    background-color:seagreen;
-    margin: 0em;
-    }
+      font-family: 'Tolkien', sans-serif;
+      font-size: 1em;
+      background-color:seagreen;
+      margin: 0em;
+  }
 
   header {
-    height: 40vh;
-    overflow: hidden;
-    position: relative;
-    font-size: x-large;
-    font-weight: bolder;
-    ;
-    color:peru;
+      height: 40vh;
+      overflow: hidden;
+      position: relative;
+      font-size: x-large;
+      font-weight: bolder;
+      ;
+      color:peru;
   }
 
   h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
   }
 
   #Headerimg {
-    opacity: 0.60;
-    width: 100%;
-  }
-
-  #burgerimg {
-    width: 40vh;
-    height: 35vh;
-    overflow: hidden;
-    padding: 3vh;
-  }
-
-  .diet {
-    color: green;
-    font-weight: bolder;
-  } 
-
-  .allergy {
-    color:brown;
-    font-weight: bolder;
+      opacity: 0.60;
+      width: 100%;
   }
 
   #contact {
-    background-color: seagreen;
-    color: black;
-    margin: 5vh;
-    padding: 2vh;
-    border: 0.5vh double peru;
+      background-color: seagreen;
+      color: black;
+      margin: 5vh;
+      padding: 2vh;
+      border: 0.5vh double peru;
   }
 
   #burger {
-    margin: 5vh;
-    padding: 2vh;
-    border: 0.5vh double peru;
-    text-align: center;
+      margin: 5vh;
+      padding: 2vh;
+      border: 0.5vh double peru;
+      text-align: center;
   }
 
   button {
-    margin: 2vh 5vh;
-    padding: 2vh 5vh;
-    border: solid black;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    text-align: center;
+      margin: 2vh 5vh;
+      padding: 2vh 5vh;
+      border: solid black;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-align: center;
   }
 
   button:hover {
-    background-color: peru;
+      background-color: peru;
   }
 
   #ring{
-    width: 5vh;
-    height: 5vh;
+      width: 5vh;
+      height: 5vh;
   }
 
   .Burgerselection{
-    display: grid;
-    grid-gap: 2em;
-    grid-template-columns: 30em 30em 30em;
-    background-color:lightsteelblue;
-    color:azure;
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      background-color:lightsteelblue;
+      color:azure;
   }
 
   .Titel-block{
-    grid-column: 1 / span 3;
-    grid-row: 1;
+      grid-column: 1 / span 3;
+      grid-row: 1;
   }
 
-  .block-A {
-    grid-column: 1;
-    grid-row: 2;
-  }
-
-  .block-B {
-    grid-column: 2;
-    grid-row: 2;
-  }
-
-  .block-C {
-    grid-column: 3;
-    grid-row: 2;
-  }
 </style>
