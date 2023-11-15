@@ -39,7 +39,7 @@
         },
 
         decreasebutton: function () {
-            if (this.amountOrdered >= 0) {
+            if (this.amountOrdered > 0) {
                 this.amountOrdered -= 1;
             }
             this.$emit('deletedBurger', { name:   this.burger.name, 
