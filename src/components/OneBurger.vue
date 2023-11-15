@@ -2,12 +2,16 @@
   <div class="block">
     <h3>{{ burger.name }}</h3>
     <img v-bind:src="burger.url" id="burgerimg">
-    <ul>
+    <ul class="centered-list">
       <li v-for="(ingredient, index) in burger.ingredients" :key="index">{{ ingredient }}</li>
       <li v-if="burger.gluten" class="allergy">Gluten</li>
       <li v-if="burger.lactose" class="allergy">Lactose</li>
     </ul>
-    <p>{{ amountOrdered }}</p>
+    <p>
+      <button v-on:click="decreasebutton"> - </button>
+      {{ amountOrdered }} 
+      <button v-on:click="increasebutton"> + </button> 
+    </p>
   </div>
 </template>
   
@@ -22,6 +26,17 @@
             amountOrdered: 0,
         }
     },
+    methods: {
+        increasebutton: function () {
+            this.amountOrdered += 1;
+        },
+
+        decreasebutton: function () {
+            if (this.amountOrdered > 0) {
+                this.amountOrdered -= 1;
+            }
+        }
+    }
   }
   </script>
   
@@ -41,6 +56,17 @@
   
     .block {
       grid-row: 2;
+    }
+
+    .centered-list {
+      list-style: none;
+      padding: 0; 
+      text-align: center; 
+      font-family: "Times New Roman", Times, serif;
+    }
+
+    .centered-list li {
+      margin: 5px 0;
     }
 
   </style>

@@ -175,12 +175,13 @@ export default {
   }
 
   button {
-      margin: 2vh 5vh;
-      padding: 2vh 5vh;
+      margin: 1vh 2vh;
+      padding: 1vh 2vh;
       border: solid black;
       cursor: pointer;
       transition: background-color 0.3s;
       text-align: center;
+      border-radius: 5px;
   }
 
   button:hover {
