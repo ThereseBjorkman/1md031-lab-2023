@@ -21,6 +21,9 @@
     props: {
       burger: Object
     },
+
+    emits: ['orderedBurger', 'deletedBurger'],
+
     data: function () {
         return {
             amountOrdered: 0,
@@ -29,13 +32,21 @@
     methods: {
         increasebutton: function () {
             this.amountOrdered += 1;
+            this.$emit('orderedBurger', { name:   this.burger.name, 
+                                          amount: this.amountOrdered 
+                                        }
+            );
         },
 
         decreasebutton: function () {
-            if (this.amountOrdered > 0) {
+            if (this.amountOrdered >= 0) {
                 this.amountOrdered -= 1;
             }
-        }
+            this.$emit('deletedBurger', { name:   this.burger.name, 
+                                          amount: this.amountOrdered 
+                                        }
+            );
+        }, 
     }
   }
   </script>

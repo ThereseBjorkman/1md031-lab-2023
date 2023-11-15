@@ -1,8 +1,8 @@
 <template>
-  <header>
-            <img src= "https://static1.srcdn.com/wordpress/wp-content/uploads/2019/06/The-Shire.jpg" id="Headerimg">
-            <h1>Welcome to Second breakfast</h1>
-        </header>
+    <header>
+         <img src= "https://static1.srcdn.com/wordpress/wp-content/uploads/2019/06/The-Shire.jpg" id="Headerimg">
+        <h1>Welcome to Second breakfast</h1>
+    </header>
         <main>
             <section id="burger">
                 <div class="Burgerselection">
@@ -10,7 +10,10 @@
                         <h2>The best food in Middle Earth</h2>
                         <p>What about second breakfast?</p>
                     </div>
-                    <Burger v-for="burger in burgers" :key="burger.name" :burger="burger"/>
+                    <Burger v-for="burger in burgers" 
+                                  v-bind:burger="burger" 
+                                  v-bind:key="burger.name" v-on:orderedBurger="addToOrder($event)"
+                                  v-on:deletedBurger="deleteFromOrder($event)"/>
                 </div>
             </section>
             <section id="contact">
@@ -82,13 +85,16 @@ import menu from '../assets/menu.json'
 const socket = io();
 
 export default {
+
   name: 'HomeView',
   components: {
     Burger
   },
+
   data: function () {
     return {
       burgers: menu,
+      orderedBurgers: {},
       name: '',
       email: '',
       street: '',
@@ -97,6 +103,7 @@ export default {
       radio: ''
     }
   },
+
   methods: {
     getOrderNumber: function () {
       return Math.floor(Math.random()*100000);
@@ -123,6 +130,22 @@ export default {
       };
       console.log('Form Data:', formData);
     },
+
+    addToOrder(order) {
+        this.orderedBurgers[order.name] = order.amount;
+        console.log(this.orderedBurgers);
+    },
+
+    deleteFromOrder(order) {
+        if (this.orderedBurgers[order.name] > 1) {
+          this.orderedBurgers[order.name] -= 1;
+        } 
+        else {
+          delete this.orderedBurgers[order.name];
+        }
+        console.log(this.orderedBurgers);
+}
+
   }
 }
 </script>
