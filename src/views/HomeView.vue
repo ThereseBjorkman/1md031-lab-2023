@@ -70,7 +70,7 @@
         </button>
         <hr>
         <footer>
-            &copy; 2023 The Prancing Pony Inc.
+            &copy; 2023 The Golden Dragon Inc.
         </footer>
 </template>
 
@@ -80,32 +80,6 @@ import io from 'socket.io-client'
 import menu from '../assets/menu.json'
 
 const socket = io();
-
-// function MenuItem(name, url, lactose, gluten, ingredients) {
-//   this.name = name;
-//   this.url = url;
-//   this.lactose = lactose;
-//   this.gluten = gluten;
-//   this.ingredients = ingredients;
-// }
-
-// let Burgers = [ { name: "The one ring", 
-//                   url: "img/depositphotos_562899746-stock-photo-single-fried-onion-ring-_thumbnail.png", 
-//                   lactose: true, 
-//                   gluten: true, 
-//                   ingredients: "Onion, Power"},
-//                 { name: "Po-tay-toes", 
-//                   url: "img/fries-fotor-bg-remover-2023110815947.png", 
-//                   lactose: false, 
-//                   gluten: false,
-//                   ingredients: "Boil'em, Mash'em"}, 
-//                 { name: "Lembas bread", 
-//                   url: "img/dsc_2986-fotor-bg-remover-20231108143341.png", 
-//                   lactose: false, 
-//                   gluten: true,
-//                   ingredients: "Mallorn Leaves"}
-//               ]
-
 
 export default {
   name: 'HomeView',
@@ -139,8 +113,16 @@ export default {
     },
 
     handleClick: function () {
-      console.log('Button clicked!');
-    }
+      const formData = {
+        name: this.name,
+        email: this.email,
+        street: this.street,
+        number: this.number,
+        selected: this.selected,
+        radio: this.radio
+      };
+      console.log('Form Data:', formData);
+    },
   }
 }
 </script>
@@ -224,3 +206,28 @@ export default {
   }
 
 </style>
+
+// function MenuItem(name, url, lactose, gluten, ingredients) {
+  //   this.name = name;
+  //   this.url = url;
+  //   this.lactose = lactose;
+  //   this.gluten = gluten;
+  //   this.ingredients = ingredients;
+  // }
+  
+  // let Burgers = [ { name: "The one ring", 
+  //                   url: "img/depositphotos_562899746-stock-photo-single-fried-onion-ring-_thumbnail.png", 
+  //                   lactose: true, 
+  //                   gluten: true, 
+  //                   ingredients: "Onion, Power"},
+  //                 { name: "Po-tay-toes", 
+  //                   url: "img/fries-fotor-bg-remover-2023110815947.png", 
+  //                   lactose: false, 
+  //                   gluten: false,
+  //                   ingredients: "Boil'em, Mash'em"}, 
+  //                 { name: "Lembas bread", 
+  //                   url: "img/dsc_2986-fotor-bg-remover-20231108143341.png", 
+  //                   lactose: false, 
+  //                   gluten: true,
+  //                   ingredients: "Mallorn Leaves"}
+  //               ]

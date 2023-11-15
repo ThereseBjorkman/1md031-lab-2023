@@ -7,6 +7,7 @@
       <li v-if="burger.gluten" class="allergy">Gluten</li>
       <li v-if="burger.lactose" class="allergy">Lactose</li>
     </ul>
+    <p>{{ amountOrdered }}</p>
   </div>
 </template>
   
@@ -15,7 +16,12 @@
     name: 'OneBurger',
     props: {
       burger: Object
-    }
+    },
+    data: function () {
+        return {
+            amountOrdered: 0,
+        }
+    },
   }
   </script>
   
