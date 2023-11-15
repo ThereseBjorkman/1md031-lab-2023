@@ -16,49 +16,55 @@
             <section id="contact">
                 <form>
                     <h2>Customer Information</h2>
-                    <p>
-                        Here you need to enter your adress and name for the delivery.
-                    </p>
-                    <p>
-                        <label for="firstname">Full Name</label><br>
-                        <input type="text" id="firstname" name="fln" required="required" placeholder="First- and Last name">
-                    </p>
-                    <p>
-                        <label for="email">E-mail</label><br>
-                        <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
-                    </p>
-                    <p>
-                        <label for="street">Street</label><br>
-                        <input type="text" id="street" name="sn" placeholder="Street name">
-                    </p>
-                    <p>
-                        <label for="house">House</label><br>
-                        <input type="number" id="house" name="hn" placeholder="House number">
-                    </p>
-                    <p>
+                    <p>Here you need to enter your adress and name for the delivery.</p>
+                    <div>
+                      <label for="firstname">Full Name</label><br>
+                      <input v-model="name" id="firstname" type="text" required="required" placeholder="First- and Last name"/>
+                      <p>Your name: {{ name }}</p>
+                    </div>
+                    
+                    <div>
+                      <label for="email">E-mail</label><br>
+                      <input v-model="email" id="email" type="text" required="required" placeholder="E-mail address"/>
+                      <p>Your email: {{ email }}</p>
+                    </div>
+                    
+                    <div>
+                      <label for="street">Street</label><br>
+                      <input v-model="street" id="street" type="text" required="required" placeholder="Street name"/>
+                    </div>
+                    
+                    <div>
+                      <label for="house">House</label><br>
+                      <input v-model="number" id="house" type="number" required="required" placeholder="House number"/>
+                      <p>Your address is: {{ street }} {{ number }}</p>
+                    </div>
+                    <div>
                         <label for="payment">Payment Method</label><br>
-                        <select id="payment" name="pay" selected="Klarna">
+                        <select id="payment" v-model="selected">
                             <option>Silver farthing</option>
                             <option>Silver penny</option>
                             <option>Brassling</option>
                             <option>Copperlings</option>
                         </select>
-                    </p>
-                    <p>
-                        <label>
-                            <input type="radio" name="choices" value="F"> Hobbit
-                        </label>
-                        <label>
-                            <input type="radio" name="choices" value="M"> Dwarf
-                        </label>
-                        <label>
-                            <input type="radio" name="choices" value="O"> Elf
-                        </label>
-                    </p>
+                        <p>Selected payment method: {{ selected }}</p>
+                    </div>
+                    <div>
+                        <input v-model="radio" name="choices" value="Hobbit" type="radio">
+                        <label for="Hobbit">Hobbit</label>
+
+                        <input v-model="radio" name="choices" value="Dwarf" type="radio">
+                        <label for="Dwarf">Dwarf</label>
+
+                        <input v-model="radio" name="choices" value="Elf" type="radio"> 
+                        <label for="Elf">Elf </label>
+
+                        <p>Selected: {{ radio }}</p>
+                    </div>
                 </form>
             </section>
         </main>
-        <button type="submit">
+        <button v-on:click="handleClick">
             <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/One_Ring_Blender_Render.png" id="ring">
             Take the ring to Mordor!
         </button>
@@ -108,7 +114,13 @@ export default {
   },
   data: function () {
     return {
-      burgers: menu
+      burgers: menu,
+      name: '',
+      email: '',
+      street: '',
+      number: null,
+      selected: 'Silver farthing',
+      radio: ''
     }
   },
   methods: {
@@ -124,6 +136,10 @@ export default {
                                 orderItems: ["Beans", "Curry"]
                               }
                  );
+    },
+
+    handleClick: function () {
+      console.log('Button clicked!');
     }
   }
 }
