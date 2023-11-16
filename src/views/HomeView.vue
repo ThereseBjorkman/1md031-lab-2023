@@ -60,7 +60,7 @@
                 </div>
                 <div class="block-B">
                     <div v-on:click="addOrder" id="map">
-                        <div v-on:click="updatelocation" id="dot">T</div>T
+                        <div id="dot">T</div>
                     </div>
                 </div>
             </section>
@@ -113,9 +113,14 @@ export default {
                                 orderItems: ["Beans", "Curry"]
                               }
                  );
-        location.x = event.clientX - 10 - offset.x;
-        location.y = event.clientY - 10 - offset.y;
-        this.moveDot();
+      location.x = event.clientX - 10 - offset.x;
+      location.y = event.clientY - 10 - offset.y;
+      
+      const dot = document.getElementById('dot');
+      
+      dot.style.left = location.x + 'px';
+      dot.style.top = location.y + 'px';
+
     },
 
     handleClick: function () {
@@ -129,13 +134,6 @@ export default {
       };
       console.log('Form Data:', formData);
     },
-
-    moveDot() {
-        const dot = document.getElementById('dot');
-        
-        dot.style.left = location.x + 'px';
-        dot.style.top = location.y + 'px';
-      },
 
     addToOrder(order) {
         this.orderedBurgers[order.name] = order.amount;
