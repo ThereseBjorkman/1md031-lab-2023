@@ -17,48 +17,52 @@
                 </div>
             </section>
             <section class="contact">
-                <form class="Form">
-                    <h2>Customer Information</h2>
-                    <p>Here you need to enter your adress and name for the delivery.</p>
-                    <div>
-                      <label for="firstname">Full Name</label><br>
-                      <input v-model="name" id="firstname" type="text" required="required" placeholder="First- and Last name"/>
-                      <p>Your name: {{ name }}</p>
-                    </div>
-                    
-                    <div>
-                      <label for="email">E-mail</label><br>
-                      <input v-model="email" id="email" type="text" required="required" placeholder="E-mail address"/>
-                      <p>Your email: {{ email }}</p>
-                    </div>
-                    <div>
-                        <label for="payment">Payment Method</label><br>
-                        <select id="payment" v-model="selected">
-                            <option>Silver farthing</option>
-                            <option>Silver penny</option>
-                            <option>Brassling</option>
-                            <option>Copperlings</option>
-                        </select>
-                        <p>Selected payment method: {{ selected }}</p>
-                    </div>
-                    <div>
-                        <input v-model="radio" name="choices" value="Hobbit" type="radio">
-                        <label for="Hobbit">Hobbit</label>
+                <div class="block-A">
+                    <form class="Form">
+                        <h2>Customer Information</h2>
+                        <p>Here you need to enter your adress and name for the delivery.</p>
+                        <div>
+                          <label for="firstname">Full Name</label><br>
+                          <input v-model="name" id="firstname" type="text" required="required" placeholder="First- and Last name"/>
+                          <p>Your name: {{ name }}</p>
+                        </div>
+                        
+                        <div>
+                          <label for="email">E-mail</label><br>
+                          <input v-model="email" id="email" type="text" required="required" placeholder="E-mail address"/>
+                          <p>Your email: {{ email }}</p>
+                        </div>
+                        <div>
+                            <label for="payment">Payment Method</label><br>
+                            <select id="payment" v-model="selected">
+                                <option>Silver farthing</option>
+                                <option>Silver penny</option>
+                                <option>Brassling</option>
+                                <option>Copperlings</option>
+                            </select>
+                            <p>Selected payment method: {{ selected }}</p>
+                        </div>
+                        <div>
+                            <input v-model="radio" name="choices" value="Hobbit" type="radio">
+                            <label for="Hobbit">Hobbit</label>
 
-                        <input v-model="radio" name="choices" value="Dwarf" type="radio">
-                        <label for="Dwarf">Dwarf</label>
+                            <input v-model="radio" name="choices" value="Dwarf" type="radio">
+                            <label for="Dwarf">Dwarf</label>
 
-                        <input v-model="radio" name="choices" value="Elf" type="radio"> 
-                        <label for="Elf">Elf </label>
-                        <p>Selected: {{ radio }}</p>
-                    </div>
-                    <button v-on:click="handleClick" id="ringbutton">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/One_Ring_Blender_Render.png" id="ring">
-                        Take the ring to Mordor!
-                    </button>
-                </form>
-                <div v-on:click="addOrder" class="map">
-                    click here
+                            <input v-model="radio" name="choices" value="Elf" type="radio"> 
+                            <label for="Elf">Elf </label>
+                            <p>Selected: {{ radio }}</p>
+                        </div>
+                        <button v-on:click="handleClick" id="ringbutton">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/One_Ring_Blender_Render.png" id="ring">
+                            Take the ring to Mordor!
+                        </button>
+                    </form>
+                </div>
+                <div class="block-B">
+                  <div v-on:click="addOrder" id="map">
+                      click here
+                  </div>
                 </div>
             </section>
         </main>
@@ -181,8 +185,7 @@ export default {
       margin: 5vh;
       padding: 2vh;
       border: 0.5vh double peru;
-      overflow: scroll;
-      grid-template-columns: 200px 500px;
+      grid-template-columns: 1fr 2fr;
       grid-template-rows: 600px;
   }
 
@@ -230,15 +233,19 @@ export default {
       grid-row: 1;
   }
 
-  .map {
+  .block-B {
     grid-column: 2;
     grid-row: 1;
+    overflow: scroll;
+  }
+
+  #map{
     background: url("../../public/img/polacks.jpg");
     width: 1920px;
     height: 1076px;
   }
 
-  .form{
+  .block-A {
     grid-column: 1;
     grid-row: 1;
   }
