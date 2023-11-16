@@ -8,7 +8,6 @@
                 <div class="Burgerselection">
                     <div class="Titel-block">
                         <h2>The best food in Middle Earth</h2>
-                        <p>What about second breakfast?</p>
                     </div>
                     <Burger v-for="burger in burgers" 
                                   v-bind:burger="burger" 
@@ -18,19 +17,19 @@
             </section>
             <section class="contact">
                 <div class="block-A">
-                    <form class="Form">
+                    <form>
                         <h2>Customer Information</h2>
-                        <p>Here you need to enter your adress and name for the delivery.</p>
+                        <p>Here you need to enter your contact information for the delivery.</p>
                         <div>
-                          <label for="firstname">Full Name</label><br>
-                          <input v-model="name" id="firstname" type="text" required="required" placeholder="First- and Last name"/>
-                          <p>Your name: {{ name }}</p>
+                            <label for="firstname">Full Name</label><br>
+                            <input v-model="name" id="firstname" type="text" required="required" placeholder="First- and Last name"/>
+                            <p>Your name: {{ name }}</p>
                         </div>
                         
                         <div>
-                          <label for="email">E-mail</label><br>
-                          <input v-model="email" id="email" type="text" required="required" placeholder="E-mail address"/>
-                          <p>Your email: {{ email }}</p>
+                            <label for="email">E-mail</label><br>
+                            <input v-model="email" id="email" type="text" required="required" placeholder="E-mail address"/>
+                            <p>Your email: {{ email }}</p>
                         </div>
                         <div>
                             <label for="payment">Payment Method</label><br>
@@ -60,9 +59,9 @@
                     </form>
                 </div>
                 <div class="block-B">
-                  <div v-on:click="addOrder" id="map">
-                      click here
-                  </div>
+                    <div v-on:click="addOrder" id="map">
+                        <div v-on:click="updatelocation" id="dot">T</div>T
+                    </div>
                 </div>
             </section>
         </main>
@@ -95,7 +94,9 @@ export default {
       street: '',
       number: null,
       selected: 'Silver farthing',
-      radio: ''
+      radio: '',
+      location: { x: 0,
+                  y: 0}
     }
   },
 
@@ -112,6 +113,9 @@ export default {
                                 orderItems: ["Beans", "Curry"]
                               }
                  );
+        location.x = event.clientX - 10 - offset.x;
+        location.y = event.clientY - 10 - offset.y;
+        this.moveDot();
     },
 
     handleClick: function () {
@@ -126,6 +130,13 @@ export default {
       console.log('Form Data:', formData);
     },
 
+    moveDot() {
+        const dot = document.getElementById('dot');
+        
+        dot.style.left = location.x + 'px';
+        dot.style.top = location.y + 'px';
+      },
+
     addToOrder(order) {
         this.orderedBurgers[order.name] = order.amount;
         console.log(this.orderedBurgers);
@@ -139,10 +150,10 @@ export default {
           delete this.orderedBurgers[order.name];
         }
         console.log(this.orderedBurgers);
-}
-
+    },
   }
 }
+
 </script>
 
 <style>
@@ -243,11 +254,26 @@ export default {
     background: url("../../public/img/polacks.jpg");
     width: 1920px;
     height: 1076px;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    cursor: crosshair;
   }
 
   .block-A {
     grid-column: 1;
     grid-row: 1;
+  }
+  
+  #map div {
+    position: absolute;
+    background: black;
+    color: white;
+    border-radius: 10px;
+    width:20px;
+    height:20px;
+    text-align: center;
   }
 
 </style>
