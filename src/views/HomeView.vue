@@ -16,8 +16,8 @@
                                   v-on:deletedBurger="deleteFromOrder($event)"/>
                 </div>
             </section>
-            <section id="contact">
-                <form>
+            <section class="contact">
+                <form class="Form">
                     <h2>Customer Information</h2>
                     <p>Here you need to enter your adress and name for the delivery.</p>
                     <div>
@@ -30,17 +30,6 @@
                       <label for="email">E-mail</label><br>
                       <input v-model="email" id="email" type="text" required="required" placeholder="E-mail address"/>
                       <p>Your email: {{ email }}</p>
-                    </div>
-                    
-                    <div>
-                      <label for="street">Street</label><br>
-                      <input v-model="street" id="street" type="text" required="required" placeholder="Street name"/>
-                    </div>
-                    
-                    <div>
-                      <label for="house">House</label><br>
-                      <input v-model="number" id="house" type="number" required="required" placeholder="House number"/>
-                      <p>Your address is: {{ street }} {{ number }}</p>
                     </div>
                     <div>
                         <label for="payment">Payment Method</label><br>
@@ -61,16 +50,18 @@
 
                         <input v-model="radio" name="choices" value="Elf" type="radio"> 
                         <label for="Elf">Elf </label>
-
                         <p>Selected: {{ radio }}</p>
                     </div>
+                    <button v-on:click="handleClick" id="ringbutton">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/One_Ring_Blender_Render.png" id="ring">
+                        Take the ring to Mordor!
+                    </button>
                 </form>
+                <div v-on:click="addOrder" class="map">
+                    click here
+                </div>
             </section>
         </main>
-        <button v-on:click="handleClick">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/One_Ring_Blender_Render.png" id="ring">
-            Take the ring to Mordor!
-        </button>
         <hr>
         <footer>
             &copy; 2023 The Golden Dragon Inc.
@@ -182,12 +173,17 @@ export default {
       width: 100%;
   }
 
-  #contact {
+  .contact {
+      display: grid;
+      gap: 1rem;
       background-color: seagreen;
       color: black;
       margin: 5vh;
       padding: 2vh;
       border: 0.5vh double peru;
+      overflow: scroll;
+      grid-template-columns: 200px 500px;
+      grid-template-rows: 600px;
   }
 
   #burger {
@@ -211,6 +207,11 @@ export default {
       background-color: peru;
   }
 
+  #ringbutton{
+      display: flex;
+      align-items: center;
+  }
+
   #ring{
       width: 5vh;
       height: 5vh;
@@ -227,6 +228,19 @@ export default {
   .Titel-block{
       grid-column: 1 / span 3;
       grid-row: 1;
+  }
+
+  .map {
+    grid-column: 2;
+    grid-row: 1;
+    background: url("../../public/img/polacks.jpg");
+    width: 1920px;
+    height: 1076px;
+  }
+
+  .form{
+    grid-column: 1;
+    grid-row: 1;
   }
 
 </style>
