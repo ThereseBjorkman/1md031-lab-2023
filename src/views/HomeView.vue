@@ -59,8 +59,9 @@
                     </form>
                 </div>
                 <div class="block-B">
+                  <h2>Click on the map yo give us your location</h2>
                     <div v-on:click="setLocation" id="map">
-                        <div id="dot" v-bind:style="{left: this.location.x + 'px', top: this.location.y + 'px'}">T</div>
+                        <div id="dot" v-bind:style="{left: this.location.x + 'px', top: this.location.y + 'px', visibility: dotVisibility}">T</div>
                     </div>
                 </div>
             </section>
@@ -94,7 +95,8 @@ export default {
       selected: 'Silver farthing',
       radio: '',
       location: { x: 0,
-                  y: 0}
+                  y: 0},
+      dotVisibility: 'hidden'
     }
   },
 
@@ -104,6 +106,8 @@ export default {
     },
 
     setLocation: function (event) {
+        this.dotVisibility = 'visible';
+
         var offset = {x: event.currentTarget.getBoundingClientRect().left,
                       y: event.currentTarget.getBoundingClientRect().top};
 
@@ -223,7 +227,7 @@ export default {
       display: grid;
       gap: 1rem;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      background-color:lightsteelblue;
+      background-color:#2A603B;
       color:azure;
   }
 
