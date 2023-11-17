@@ -123,7 +123,7 @@ export default {
           orderId: this.getOrderNumber(),
           details: {x: this.location.x,
                     y: this.location.y},
-          orderItems: ["Beans", "Curry"]});
+          orderItems: this.orderedBurgers});
 
       console.log('Form Data:', formData);
     },
