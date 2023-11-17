@@ -112,20 +112,17 @@ export default {
     },
 
     PlaceOrder: function () {
-      const formData = {
-        name: this.name,
-        email: this.email,
-        selected: this.selected,
-        radio: this.radio
-      };
 
       socket.emit("addOrder", {
           orderId: this.getOrderNumber(),
           details: {x: this.location.x,
                     y: this.location.y},
-          orderItems: this.orderedBurgers});
-
-      console.log('Form Data:', formData);
+          orderItems: this.orderedBurgers,
+          customerInfo: {name: this.name,
+                        email: this.email,
+                        selected: this.selected,
+                        radio: this.radio}
+        });
     },
 
     addToOrder(order) {

@@ -1,11 +1,12 @@
 <template>
   <div id="orders">
     <div id="orderList">
-      <div v-for="(order, key) in orders" v-bind:key="'order'+key">
-        #{{ key }}:
+      <div v-for="(order, key) in orders" v-bind:key="'order'+key">    
+        #{{ key }}: 
         <div v-for="(value, itemName) in order.orderItems" :key="itemName">
           {{ itemName }}: {{ value }} 
         </div>
+        <div>{{ generateOrderString(order) }}</div>
         <hr>
       </div>
       <button v-on:click="clearQueue">Clear Queue</button>
@@ -35,6 +36,15 @@ export default {
   methods: {
     clearQueue: function () {
       socket.emit('clearQueue');
+    },
+
+  generateOrderString: function (order) {
+    let name = order.customerInfo.name;
+    let email = order.customerInfo.email;
+    let payment = order.customerInfo.selected;
+    let creature = order.customerInfo.radio;
+
+    return `${name} (${email}, ${payment}, ${creature})`;
     }
   }
 }
