@@ -42,25 +42,25 @@
                             <p>Selected payment method: {{ selected }}</p>
                         </div>
                         <div>
-                            <input v-model="radio" name="choices" value="Hobbit" type="radio">
+                            <input v-model="radio" name="choices" value="Hobbit" type="radio" id="Hobbit">
                             <label for="Hobbit">Hobbit</label>
 
-                            <input v-model="radio" name="choices" value="Dwarf" type="radio">
+                            <input v-model="radio" name="choices" value="Dwarf" type="radio" id="Dwarf">
                             <label for="Dwarf">Dwarf</label>
 
-                            <input v-model="radio" name="choices" value="Elf" type="radio"> 
+                            <input v-model="radio" name="choices" value="Elf" type="radio" id="Elf"> 
                             <label for="Elf">Elf </label>
                             <p>Selected: {{ radio }}</p>
                         </div>
-                        <button v-on:click="handleClick" id="ringbutton">
+                        <button v-on:click="PlaceOrder" id="ringbutton">
                             <img src="https://upload.wikimedia.org/wikipedia/commons/d/d4/One_Ring_Blender_Render.png" id="ring">
                             Take the ring to Mordor!
                         </button>
                     </form>
                 </div>
                 <div class="block-B">
-                    <div v-on:click="addOrder" id="map">
-                        <div id="dot">T</div>
+                    <div v-on:click="setLocation" id="map">
+                        <div id="dot" v-bind:style="{left: this.location.x + 'px', top: this.location.y + 'px'}">T</div>
                     </div>
                 </div>
             </section>
@@ -91,8 +91,6 @@ export default {
       orderedBurgers: {},
       name: '',
       email: '',
-      street: '',
-      number: null,
       selected: 'Silver farthing',
       radio: '',
       location: { x: 0,
@@ -104,34 +102,29 @@ export default {
     getOrderNumber: function () {
       return Math.floor(Math.random()*100000);
     },
-    addOrder: function (event) {
-      var offset = {x: event.currentTarget.getBoundingClientRect().left,
-                    y: event.currentTarget.getBoundingClientRect().top};
-      socket.emit("addOrder", { orderId: this.getOrderNumber(),
-                                details: { x: event.clientX - 10 - offset.x,
-                                           y: event.clientY - 10 - offset.y },
-                                orderItems: ["Beans", "Curry"]
-                              }
-                 );
-      location.x = event.clientX - 10 - offset.x;
-      location.y = event.clientY - 10 - offset.y;
-      
-      const dot = document.getElementById('dot');
-      
-      dot.style.left = location.x + 'px';
-      dot.style.top = location.y + 'px';
 
+    setLocation: function (event) {
+        var offset = {x: event.currentTarget.getBoundingClientRect().left,
+                      y: event.currentTarget.getBoundingClientRect().top};
+
+        this.location.x = event.clientX - 10 - offset.x;
+        this.location.y = event.clientY - 10 - offset.y;
     },
 
-    handleClick: function () {
+    PlaceOrder: function () {
       const formData = {
         name: this.name,
         email: this.email,
-        street: this.street,
-        number: this.number,
         selected: this.selected,
         radio: this.radio
       };
+
+      socket.emit("addOrder", {
+          orderId: this.getOrderNumber(),
+          details: {x: this.location.x,
+                    y: this.location.y},
+          orderItems: ["Beans", "Curry"]});
+
       console.log('Form Data:', formData);
     },
 
