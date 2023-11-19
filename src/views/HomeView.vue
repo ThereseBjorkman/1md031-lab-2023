@@ -61,7 +61,7 @@
                 <div class="block-B">
                   <h2>Click on the map yo give us your location</h2>
                     <div v-on:click="setLocation" id="map">
-                        <div id="dot" v-bind:style="{left: this.location.x + 'px', top: this.location.y + 'px', visibility: dotVisibility}">T</div>
+                        <div id="dot" v-bind:style="{left: this.location.x + 'px', top: this.location.y + 'px', visibility: dotVisibility}"></div>
                     </div>
                 </div>
             </section>
