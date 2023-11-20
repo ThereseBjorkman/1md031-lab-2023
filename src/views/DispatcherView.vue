@@ -46,7 +46,7 @@ export default {
     let creature = order.customerInfo.radio;
 
     return `${name} (${email}, ${payment}, ${creature})`;
-    },
+    }
   }
 }
 </script>

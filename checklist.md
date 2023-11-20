@@ -59,8 +59,8 @@ Your Dispatcher.vue file:
     - [X] the customer information
 
 ## Optional
-- [ ] Only allow the order to be sent if all necessary information are provided
-- [ ] Display receipt on the customer page as well
+- [X] Only allow the order to be sent if all necessary information are provided
+- [X] Display receipt on the customer page as well
 - [ ] Allow the dispatcher to handle orders by providing buttons next to every order that can switch the order status to "in preparation" and "done"
 - [ ] Display the order status to the customer and update it in the customer view if updated by the dispatcher
 - [ ] Show the order status for the customer as well.
