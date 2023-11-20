@@ -61,7 +61,7 @@
     }
 
     .allergy {
-      color:brown;
+      color:peru;
       font-weight: bolder;
     }
   
@@ -73,7 +73,6 @@
       list-style: none;
       padding: 0; 
       text-align: center; 
-      font-family: "Times New Roman", Times, serif;
     }
 
     .centered-list li {

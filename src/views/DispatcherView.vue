@@ -26,12 +26,13 @@ export default {
   name: 'DispatcherView',
   data: function () {
     return {
-      orders: null
+      orders: null,
     }
   },
   created: function () {
     socket.on('currentQueue', data =>
       this.orders = data.orders);
+      
   },
   methods: {
     clearQueue: function () {
@@ -45,10 +46,11 @@ export default {
     let creature = order.customerInfo.radio;
 
     return `${name} (${email}, ${payment}, ${creature})`;
-    }
+    },
   }
 }
 </script>
+
 <style>
 #orderList {
   top:1em;
